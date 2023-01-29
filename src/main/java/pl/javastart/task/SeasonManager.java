@@ -15,17 +15,14 @@ public class SeasonManager {
         String userInput = scanner.nextLine();
 
         System.out.println("W tej porze roku są następujące miesiące:");
-        if (userInput.equalsIgnoreCase(Season.SPRING.getSeasonNameInPl())) {
-            System.out.println(Arrays.toString(Season.SPRING.months));
+        findSeasonByName(userInput);
+    }
 
-        } else if (userInput.equalsIgnoreCase(Season.SUMMER.getSeasonNameInPl())) {
-            System.out.println(Arrays.toString(Season.SUMMER.months));
-
-        } else if (userInput.equalsIgnoreCase(Season.AUTUMN.getSeasonNameInPl())) {
-            System.out.println(Arrays.toString(Season.AUTUMN.months));
-
-        } else if (userInput.equalsIgnoreCase(Season.WINTER.getSeasonNameInPl())) {
-            System.out.println(Arrays.toString(Season.WINTER.months));
+    private void findSeasonByName(String userInput) {
+        for (Season season : Season.values()) {
+            if (userInput.equalsIgnoreCase(season.getSeasonNameInPl())) {
+                System.out.println(Arrays.toString(season.months));
+            }
         }
     }
 }
